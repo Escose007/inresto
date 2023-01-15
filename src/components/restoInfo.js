@@ -1,40 +1,36 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginFields } from '../constants/formFields';
+import { restoInfoFields } from '../constants/restoinfo';
 import FormAction from './formAction';
-import FormExtra from './formExtra';
 import Input from './input';
 
-const fields = loginFields;
+const fields = restoInfoFields;
 let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ''));
 
-const Login = () => {
-  const [loginState, setLoginState] = useState(fieldsState);
+const RestoInfo = () => {
+  const [restoInfo, setRestoInfo] = useState(fieldsState);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setLoginState({ ...loginState, [e.target.id]: e.target.value });
+    setRestoInfo({ ...restoInfo, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('restomenu/breakfast');
-    authenticateUser();
+    navigate('/restomenu/breakfast');
   };
 
-  //Handle Login API Integration here
-  const authenticateUser = () => {};
-
   return (
-    <div className="max-w-md w-full space-y-8">
-      <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="-space-y-px">
+    <div className="w-full">
+      <h2 className="mt-6 text-3xl text-gray-700">Restorent Details</h2>
+      <form className="mt-8 container mx-auto" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 sm:gap-6">
           {fields.map((field) => (
             <Input
               key={field.id}
               handleChange={handleChange}
-              value={loginState[field.id]}
+              value={restoInfo[field.id]}
               labelText={field.labelText}
               labelFor={field.labelFor}
               id={field.id}
@@ -45,11 +41,12 @@ const Login = () => {
             />
           ))}
         </div>
-        <FormExtra />
-        <FormAction handleSubmit={handleSubmit} text="Login" />
+        <div className="md:w-100 xl:w-40 float-right">
+          <FormAction handleSubmit={handleSubmit} text="Submit" />
+        </div>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default RestoInfo;
