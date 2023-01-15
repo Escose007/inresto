@@ -1,7 +1,12 @@
-import Login from './components/login';
+import Router from './Router';
+import { StrictMode } from 'react';
 
 function App() {
-  return <Login />;
+  return (
+    <StrictMode>
+      <Router />
+    </StrictMode>
+  );
 }
 
 export default App;
