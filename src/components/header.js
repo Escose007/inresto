@@ -12,7 +12,7 @@ export default function Header({
         <img
           alt=""
           className="h-20 w-20"
-          src={process.env.PUBLIC_URL + '/inrestologin.png'}
+          src={process.env.PUBLIC_URL + '/waiter.jpeg'}
         />
       </div>
       <h2 className="mt-6 text-center text-3xl text-gray-700">{heading}</h2>

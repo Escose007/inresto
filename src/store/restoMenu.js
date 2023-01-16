@@ -4,9 +4,9 @@ export const restoMenu = createSlice({
   name: 'counter',
   initialState: {
     menu: {
-      breakfast: [],
-      lunch: [],
-      dinner: [],
+      breakfast: [{"price":10,"dishDetails":"Dummy Dish","dishName":"Dummy Bhindi"}, {"price":20,"dishDetails":"Dummy Dish","dishName":"Dummy Tamatar"},{"price":140,"dishDetails":"Dummy Dish","dishName":"Dummy Aaloo"}],
+      lunch: [{"price":10,"dishDetails":"Dummy Dish","dishName":"Dummy Aaloo"}],
+      dinner: [{"price":10,"dishDetails":"Dummy Dish","dishName":"Dummy Tamatar"}],
     },
   },
   reducers: {
